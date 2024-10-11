@@ -14,7 +14,7 @@
 ## Elementos del repositorio
  
 -  #### En [**CAD**](https://github.com/lata-mas/DTHIS_Jorge/tree/main/CAD) encuentra
-	-  Planos CAD
+	-  Planos para 3D
 
  - #### En [**Diagramas**](https://github.com/lata-mas/DTHIS_Jorge/tree/main/Diagramas) encuentra
 	- Diagrama de conexión
@@ -24,8 +24,8 @@
 
  -  #### En [**Materiales**](https://github.com/lata-mas/DTHIS_Jorge/tree/main/Materiales) encuentra
 	-  Lista de materiales y costos
- -  Fichas técnicas de los sensores y componentes utilizados
+        -  Fichas técnicas de los sensores y componentes utilizados
 
- -  #### En [**Scripts**](https://github.com/lata-mas/DTHIS_Jorge/tree/main/codigo) encuentra
+ -  #### En [**Codigo**](https://github.com/lata-mas/DTHIS_Jorge/tree/main/codigo) encuentra
 	- Códigos empleados
 	- Librerías a utilizar
