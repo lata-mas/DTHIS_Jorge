@@ -16,13 +16,13 @@
 -  #### En [**CAD**](https://github.com/lata-mas/DTHIS_Jorge/tree/main/CAD) encuentra
 	-  Planos para 3D
 
- - #### En [**diagramas**](https://github.com/lata-mas/DTHIS_Jorge/tree/main/Diagramas) encuentra
+ - #### En [**diagramas**](https://github.com/lata-mas/DTHIS_Jorge/tree/main/diagramas) encuentra
 	- Diagrama de conexión
 
- - #### En [**manual**](https://github.com/lata-mas/DTHIS_Jorge/tree/main/Manuales) encuentra
+ - #### En [**manual**](https://github.com/lata-mas/DTHIS_Jorge/tree/main/manual) encuentra
 	-  Manual de operación para recrear el DTHIS
 
- -  #### En [**materiales**](https://github.com/lata-mas/DTHIS_Jorge/tree/main/Materiales) encuentra
+ -  #### En [**materiales**](https://github.com/lata-mas/DTHIS_Jorge/tree/main/materiales) encuentra
 	-  Lista de materiales y costos
         -  Fichas técnicas de los sensores y componentes utilizados
 
