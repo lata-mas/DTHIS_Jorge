@@ -2,20 +2,37 @@
 
 En este caso usaremos un microfono USB-C al cual le pusimos un adaptador de C-USB pues la RasPi no tiene mas puertos C
 
+# 2. Descaragar paqueterias necesarias 
 
+```
+sudo apt update
+sudo apt install alsa-utils
+sudo apt install sox libsox-fmt-all
+```
 
 # 2. Comprobar que el microfono escucha
 
-Es muy simple la comporbacion solo tienes que teclrear en la terminal:
+Primero se tiene que identificar a que puerto está conectado el micrófono
+
+```
+arecord -l
+```
+Se desplegara algo así:
+
+Los números encerrados son los que se sustituiran en nuestro código
+
+
+
+Es muy simple la comporbación, solo tienes que teclrear en la terminal:
 
 ```
 arecord -D plughw:2,0 -f cd -t wav -d 15 -r 44100
 ```
-El plughw:2,0 es la direccion del puerto al que esta conectado nuestro micro, cada RasPi puede decir algo diferente, si funciona correctamente la terminal te dira que esta grabando en ese momento 
+El _plughw:2,0_ es la dirección del puerto al que esta conectado nuestro micro, cada RasPi puede decir algo diferente, si funciona correctamente la terminal te dira que esta grabando en ese momento 
 
-# 3. Crear scrypts de cada una de las funcicones
+# 3. Crear scripts de cada una de las funcicones
 
-Debido a que en este sensor necesitamos que haga mas de una funcion, sugerimos hacer un scrypt por cada una de la funciones que necesitamos para extraer las variables, los scrypts estan en este repositorio, solo tecleas en la terminal:
+Debido a que en este sensor necesitamos que haga mas de una funcion, sugerimos hacer un script por cada una de la funciones que necesitamos para extraer las variables, los scrypts estan en este repositorio, solo tecleas en la terminal:
 
 ```
 nano
