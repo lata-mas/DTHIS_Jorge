@@ -53,7 +53,7 @@ Debido a que no queremos que nuestra RasPi crashee, haremo un archivo ejecutable
 ./home/pi/DTHIS/dBmax.sh
 ./home/pi/DTHIS/dBmin.sh
 ./home/pi/DTHIS/rms.sh
-.aqui ya no recuerdo como eraaaaa   leer.py
+./home/pi/venvs/sonido/bin/python3 /home/pi/DTHIS_jorge/leer.py
 ```
 # 5. Crontab
 
