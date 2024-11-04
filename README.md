@@ -31,15 +31,66 @@
 
 ## Elaboracion 
 
-- ### Iniciar Raspberry
-	- El primer paso es habilitar el microprocesador Raspberry Pi 4 Model B, para ellos necesitaremos una memoria Micro SD de 64 Gb para descargar desde cualquier ordenador el sistema operativo. Una vez lista la SD se inserta en la _Raspi_ e instalamos el sistema operativo en la maquina.
+- ### Preparar Raspberry
+	- El primer paso es habilitar el microprocesador Raspberry Pi 4 Model B, una vez instalado el sistema opertaivo en la _Raspi_ empezaremos por crear un ambiente virtual, ya que algunas paqueterias que usaremos necesitan ser descargadas en tal ambiente, esto para que no interfiera con funciones propias de la _Raspi_. Se sugiere crear una carpeta que almacene el ambiente virtual. Luego activamos el ambiente virutal y enseguida instalas las paqueterias necesarias para ejecutar Python con ayuda del archivo
 
-- ### Ensamblado de sensores
+1. Activa el entorno virtual:
+```bash
+source venvs/dthis-c/bin/activate
+```
+2. Instala las dependencias desde el archivo `requirements.txt`:
+```bash
+python -m pip install -r requirements.txt
+```
 
+- ### SCD30
+ - #### 1. Habilitar comunicación
+1. Se teclea lo siguiente en la terminal para entrar al menu de configuración
+```bash
+sudo raspi-config
+```
+2. Nos dirigimos al apartado `Interface Options`.
+3. Habilitar **I2C**
+4. Reinicias la _Raspi_
 
+ - #### 2. Armado del sensor
+Realmente es muy simple, la mayoria de los sensores ya vienen con sus cables conectores, en caso contrario con unos _jumpers_ hembra-hembra se puede conectar, solo sigue el siguiente diagrama:
+![SCD30](diagramas/SCD30.png)
 
+- #### 3. Crear script de Python
+Creamos el script con el editor de preferencia y agregamos el siguiente código: [scd30.py](https://github.com/lata-mas/DTHIS_Jorge/blob/main/codigo/SCD30.py) Inicia el sensor, tomas las lecturas y mandas los datos a nuestro servidor de internet de las cosas.
 
-- ### SCD30 
-- ### Micrófono 
+- ### Micrófono
+  #### 1. Armado de circuito
+
+En este caso usaremos un microfono USB-C al cual le pusimos un adaptador de C-USB pues la RasPi no tiene mas puertos C. Antes de conectar el micrófono debes apagar la _Raspi_
+
+  #### 2. Descaragar paqueterias necesarias 
+
+```
+sudo apt update
+sudo apt install alsa-utils
+sudo apt install sox libsox-fmt-all
+```
+ #### 3. Comprobar micrófono
+Para identificar a que puerto está conectado el micrófono, ejecuta el siguiente comando:
+```bash
+arecord -l
+```
+Se desplegará lo siguiente:
+
+![Terminal](diagramas/terminal.png)
+
+En este caso `card 3` es el puerto al que está conectado el micrófono, por lo tanto al ejecutar el comando para la captura de audio, se deberá definir `plughw:3,0`.
+
+ #### 4. Grabar audio
+Para grabar un audio se ejecuta el siguiente comando:
+```bash
+arecord -D plughw:3,0 -f cd -t wav -d 5 -r 44100 audio.wav
+```
+Esta instrucción graba 5 segundos, puedes comprobar que todo funciona escuchando el audio que acabas de grabar 
+
+ #### 
+
 - ### Cámara
-- ### 
+- ### Crontab
