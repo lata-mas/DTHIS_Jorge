@@ -43,8 +43,8 @@ source venvs/dthis-c/bin/activate
 python -m pip install -r requirements.txt
 ```
 
-- ### SCD30
- - #### 1. Habilitar comunicación
+- ## SCD30
+ - ### 1. Habilitar comunicación
 1. Se teclea lo siguiente en la terminal para entrar al menu de configuración
 ```bash
 sudo raspi-config
@@ -53,26 +53,26 @@ sudo raspi-config
 3. Habilitar **I2C**
 4. Reinicias la _Raspi_
 
- - #### 2. Armado del sensor
+ - ### 2. Armado del sensor
 Realmente es muy simple, la mayoria de los sensores ya vienen con sus cables conectores, en caso contrario con unos _jumpers_ hembra-hembra se puede conectar, solo sigue el siguiente diagrama:
 ![SCD30](diagramas/SCD30.png)
 
-- #### 3. Crear script de Python
+- ### 3. Crear script de Python
 Creamos el script con el editor de preferencia y agregamos el siguiente código: [scd30.py](https://github.com/lata-mas/DTHIS_Jorge/blob/main/codigo/SCD30.py) Inicia el sensor, tomas las lecturas y mandas los datos a nuestro servidor de internet de las cosas.
 
-- ### Micrófono
-  #### 1. Armado de circuito
+- ## Micrófono
+  
+  ### 1. Armado de circuito
 
 En este caso usaremos un microfono USB-C al cual le pusimos un adaptador de C-USB pues la RasPi no tiene mas puertos C. Antes de conectar el micrófono debes apagar la _Raspi_
 
-  #### 2. Descaragar paqueterias necesarias 
-
+ ### 2. Descaragar paqueterias necesarias 
 ```
 sudo apt update
 sudo apt install alsa-utils
 sudo apt install sox libsox-fmt-all
 ```
- #### 3. Comprobar micrófono
+ ### 3. Comprobar micrófono
 Para identificar a que puerto está conectado el micrófono, ejecuta el siguiente comando:
 ```bash
 arecord -l
@@ -83,14 +83,36 @@ Se desplegará lo siguiente:
 
 En este caso `card 3` es el puerto al que está conectado el micrófono, por lo tanto al ejecutar el comando para la captura de audio, se deberá definir `plughw:3,0`.
 
- #### 4. Grabar audio
+ ### 4. Grabar audio
 Para grabar un audio se ejecuta el siguiente comando:
 ```bash
 arecord -D plughw:3,0 -f cd -t wav -d 5 -r 44100 audio.wav
 ```
 Esta instrucción graba 5 segundos, puedes comprobar que todo funciona escuchando el audio que acabas de grabar 
 
- #### 
+ ### 5. Crear un script para cada función de audio
+
+- [grabar.sh](https://github.com/lata-mas/DTHIS_Jorge/blob/main/codigo/grabar.sh): Graba 15 segundos de audio en calidad CD. 
+- [dBmax.sh](https://github.com/lata-mas/DTHIS_Jorge/blob/main/codigo/dBmax.sh): Extrae la amplitud máxima del archivo de audio.
+- [dBmin.sh](https://github.com/lata-mas/DTHIS_Jorge/blob/main/codigo/dBmin.sh): Extrae la amplitud mínima del archivo de audio.
+- [rms.sh](https://github.com/lata-mas/DTHIS_Jorge/blob/main/codigo/rms.sh): Extrae la amplitud RMS, una medida de la potencia promedio del audio.
+
+ ### 6. Crear un script ejecutable para correr los otros scripts
+Ya que el crontab puede fallar debido a los varios procesos que tiene que realizar, pues todos los realiza al mismo tiempo y puede fallar la _Raspi_. Para eso crearemos un ejecutable _.e_ en el cual pondremos la dirección de los scripts que queremos ejecutar. Primero el de grabar (obvio) en medio los scripts que extraen los datos de sonido y los almaenan en un archivo de texto y al final el script que lee los datos de esos archivos y los manda a nuestro servido de IoT.   
+
+El archivo se crea de la siguiente manera:
+```bash
+nano ejecutable.e
+```
+
+Y su contenido debe ser el siguiente:
+```bash
+/home/pi/Sonido/grabar.sh
+/home/pi/Sonido/dBmax.sh
+/home/pi/Sonido/dBmin.sh
+/home/pi/Sonido/rms.sh
+/home/pi/venvs/DTHIS/bin/python3 /home/pi/DTHIS/scripts/sound.py
+```
 
 - ### Cámara
 - ### Crontab
