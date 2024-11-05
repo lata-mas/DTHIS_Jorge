@@ -20,7 +20,11 @@ for archivo in archivos:
         elif archivo == '/home/pi/DTHIS_jorge/dBmin.txt':
             dBmin_x = f.read().strip()
 
-micro_data = {'RMS': rms_x,'dBmax': dBmax_x,'dBmin': dBmin_x}
+rms_db = 20 * np.log10(float(rms_x)) + 120
+dBmax_db = 20 * np.log10(float(dBmax_x)) + 120
+dBmin_db = 20 * np.log10(abs(float(dBmin_x))) + 120 
+
+micro_data = {'RMS': rms_db,'dBmax': dBmax_db,'dBmin': dBmin_db}
 
 client = mqtt.Client(UNIQUE_ID, False)
 client.username_pw_set(ACCESS_TOKEN, password=None)
