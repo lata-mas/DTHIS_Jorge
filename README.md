@@ -36,7 +36,7 @@
 
 1. Activa el entorno virtual:
 ```bash
-source venvs/dthis-c/bin/activate
+source venvs/dthis/bin/activate
 ```
 2. Instala las dependencias desde el archivo `requirements.txt`:
 ```bash
@@ -62,17 +62,17 @@ Creamos el script con el editor de preferencia y agregamos el siguiente código:
 
 - ## Micrófono
   
-  ### 1. Armado de circuito
+### 1. Armado de circuito
 
 En este caso usaremos un microfono USB-C al cual le pusimos un adaptador de C-USB pues la RasPi no tiene mas puertos C. Antes de conectar el micrófono debes apagar la _Raspi_
 
- ### 2. Descaragar paqueterias necesarias 
+### 2. Descaragar paqueterias necesarias 
 ```
 sudo apt update
 sudo apt install alsa-utils
 sudo apt install sox libsox-fmt-all
 ```
- ### 3. Comprobar micrófono
+### 3. Comprobar micrófono
 Para identificar a que puerto está conectado el micrófono, ejecuta el siguiente comando:
 ```bash
 arecord -l
@@ -96,6 +96,7 @@ Esta instrucción graba 5 segundos, puedes comprobar que todo funciona escuchand
 - [dBmax.sh](https://github.com/lata-mas/DTHIS_Jorge/blob/main/codigo/dBmax.sh): Extrae la amplitud máxima del archivo de audio.
 - [dBmin.sh](https://github.com/lata-mas/DTHIS_Jorge/blob/main/codigo/dBmin.sh): Extrae la amplitud mínima del archivo de audio.
 - [rms.sh](https://github.com/lata-mas/DTHIS_Jorge/blob/main/codigo/rms.sh): Extrae la amplitud RMS, una medida de la potencia promedio del audio.
+- [leer.py](https://github.com/lata-mas/DTHIS_Jorge/blob/main/codigo/leer.py): Lee los datos previamente extraidos y los mando a nuestra plataforma de _IoT_ 
 
  ### 6. Crear un script ejecutable para correr los otros scripts
 Ya que el crontab puede fallar debido a los varios procesos que tiene que realizar, pues todos los realiza al mismo tiempo y puede fallar la _Raspi_. Para eso crearemos un ejecutable _.e_ en el cual pondremos la dirección de los scripts que queremos ejecutar. Primero el de grabar (obvio) en medio los scripts que extraen los datos de sonido y los almaenan en un archivo de texto y al final el script que lee los datos de esos archivos y los manda a nuestro servido de IoT.   
@@ -107,12 +108,14 @@ nano ejecutable.e
 
 Y su contenido debe ser el siguiente:
 ```bash
-/home/pi/Sonido/grabar.sh
-/home/pi/Sonido/dBmax.sh
-/home/pi/Sonido/dBmin.sh
-/home/pi/Sonido/rms.sh
-/home/pi/venvs/DTHIS/bin/python3 /home/pi/DTHIS/scripts/sound.py
+/home/pi/DTHIS/scripts/grabar.sh
+/home/pi/DTHIS/scripts/dBmax.sh
+/home/pi/DTHIS/scripts/dBmin.sh
+/home/pi/DTHIS/scripts/rms.sh
+/home/pi/venvs/DTHIS/bin/python3 /home/pi/DTHIS/scripts/leer.py
 ```
+La ultima linea es para activar python dentro del ambiente virtual y así poder correr el script
+
 
 - ### Cámara
 - ### Crontab
