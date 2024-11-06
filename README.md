@@ -29,10 +29,13 @@
  - #### En [**diagramas**](https://github.com/lata-mas/DTHIS_Jorge/tree/main/diagramas) encuentra
 	- Imagenes de los diagramas de conexión usados en la documentación
 
-## Elaboracion 
+## Preparar la Raspberry 
 
-- ### Preparar Raspberry
-	- El primer paso es habilitar el microprocesador Raspberry Pi 4 Model B, una vez instalado el sistema opertaivo en la _Raspi_ empezaremos por crear un ambiente virtual, ya que algunas paqueterias que usaremos necesitan ser descargadas en tal ambiente, esto para que no interfiera con funciones propias de la _Raspi_. Se sugiere crear una carpeta que almacene el ambiente virtual. Luego activamos el ambiente virutal y enseguida instalas las paqueterias necesarias para ejecutar Python con ayuda del archivo
+
+  1. Instalar sistema operativo en la microSD [buscar un video YT y ligarlo]
+  2. Crear un ambiente virtual  de Python llamado dthis en un folder venvs en el home [video]
+
+Para preparar el ambiente virtual, debes instalar los paquetes de requirements.txt
 
 1. Activa el entorno virtual:
 ```bash
@@ -53,20 +56,20 @@ sudo raspi-config
 3. Habilitar **I2C**
 4. Reinicias la _Raspi_
 
- - ### 2. Armado del sensor
-Realmente es muy simple, la mayoria de los sensores ya vienen con sus cables conectores, en caso contrario con unos _jumpers_ hembra-hembra se puede conectar, solo sigue el siguiente diagrama:
+ - ### 2. Conexión del SCD30
+Sigue el siguiente diagrama:
 ![SCD30](diagramas/SCD30.png)
 
-- ### 3. Crear script de Python
-Creamos el script con el editor de preferencia y agregamos el siguiente código: [scd30.py](https://github.com/lata-mas/DTHIS_Jorge/blob/main/codigo/SCD30.py) Inicia el sensor, tomas las lecturas y mandas los datos a nuestro servidor de internet de las cosas.
+- ### 3. Script de Python
+Ejecuta el script [scd30.py](https://github.com/lata-mas/DTHIS_Jorge/blob/main/codigo/SCD30.py). 
 
 - ## Micrófono
   
 ### 1. Armado de circuito
 
-En este caso usaremos un microfono USB-C al cual le pusimos un adaptador de C-USB pues la RasPi no tiene mas puertos C. Antes de conectar el micrófono debes apagar la _Raspi_
+En este caso usaremos un microfono USB-C al cual le pusimos un adaptador de C-USB. Antes de conectar el micrófono debes apagar la _Raspi_
 
-### 2. Descaragar paqueterias necesarias 
+### 2. Descargar paqueterias necesarias 
 ```
 sudo apt update
 sudo apt install alsa-utils
