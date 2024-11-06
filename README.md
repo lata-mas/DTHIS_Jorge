@@ -3,7 +3,7 @@
  El dispositivo DTHIS mide las variables de interes dentro del area de diseño bioclimático. En el contexto de la construción de un nuevo edificio para la LIER en el IER, se emplearon estrategias bioclimáticas dentro del mismo y la única manera de comprobar que dichas estrategias funcionan, es a través de los datos que el DTHIS pueda darnos. EL DTHIS (Dispositivo de Temperatura, Humedad, Iluminación y Sonido) funciona con un microprocesador Raspberry Pi y 3 sensores/hardware diferentes, los cuales a través de una seria de códigos recolectan las variables de interes y las mandan a una plataforma de internet de las cosas como  Thingsboard.
 
 
-## Sensores del DTHIS
+## Piezas del DTHIS
 
 | **Sensor**                                    | **Variable**                       | **Cantidad** |   **Link**                                                                                        |
 |-----------------------------------------------|------------------------------------|--------------|---------------------------------------------------------------------------------------------------|
@@ -17,17 +17,17 @@
 ## Elementos del repositorio
  
 - #### En [**CAD**](https://github.com/lata-mas/DTHIS_Jorge/tree/main/CAD) encuentra
-	- Planos para 3D
+	- Planos para 3D de la carcasa
 
- - #### En [**diagramas**](https://github.com/lata-mas/DTHIS_Jorge/tree/main/diagramas) encuentra
-	- Diagrama de conexión
 
  - #### En [**manual**](https://github.com/lata-mas/DTHIS_Jorge/tree/main/manual) encuentra
 	- Manual de operación para recrear el DTHIS
 
  - #### En [**codigo**](https://github.com/lata-mas/DTHIS_Jorge/tree/main/codigo) encuentra
-	- Códigos empleados
-	- Librerías a utilizar
+	- Códigos empleados en el SCD30, medición de niveles de ruido, mapas de luminancia, 
+ - 
+ - #### En [**diagramas**](https://github.com/lata-mas/DTHIS_Jorge/tree/main/diagramas) encuentra
+	- Imagenes de los diagramas de conexión usados en la documentación
 
 ## Elaboracion 
 
