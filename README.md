@@ -19,13 +19,12 @@
 - #### En [**CAD**](https://github.com/lata-mas/DTHIS_Jorge/tree/main/CAD) encuentra
 	- Planos para 3D de la carcasa
 
-
- - #### En [**manual**](https://github.com/lata-mas/DTHIS_Jorge/tree/main/manual) encuentra
+ - #### En [**calibración**](https://github.com/lata-mas/DTHIS_Jorge/tree/main/calibración) encuentra
 	- Manual de operación para recrear el DTHIS
 
  - #### En [**codigo**](https://github.com/lata-mas/DTHIS_Jorge/tree/main/codigo) encuentra
-	- Códigos empleados en el SCD30, medición de niveles de ruido, mapas de luminancia, 
- - 
+	- Códigos empleados en el SCD30, medición de niveles de ruido, mapas de luminancia
+
  - #### En [**diagramas**](https://github.com/lata-mas/DTHIS_Jorge/tree/main/diagramas) encuentra
 	- Imagenes de los diagramas de conexión usados en la documentación
 
