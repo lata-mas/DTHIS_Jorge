@@ -6,18 +6,18 @@ THINGSBOARD_HOST = 'tb.ier.unam.mx'
 UNIQUE_ID = 'f1bd5cf0-2754-11ef-ac1b-fb0c99e98d63' 
 ACCESS_TOKEN = '5s444k8d0vkUmBQtGKd3'
 
-archivos = ['/home/pi/DTHIS_jorge/rms.txt', '/home/pi/DTHIS_jorge/dBmax.txt', '/home/pi/DTHIS_jorge/dBmin.txt']
+archivos = ['/home/pi/DTHIS/txt/rms.txt', '/home/pi/DTHIS/txt/dBmax.txt', '/home/pi/DTHIS/txt/dBmin.txt']
 rms_x  = ""
 dBmax_x = ""
 dBmin_x = ""
 
 for archivo in archivos:
     with open(archivo, 'r', encoding='utf-8') as f:
-        if archivo == '/home/pi/DTHIS_jorge/rms.txt':
+        if archivo == '/home/pi/DTHIS/txt/rms.txt':
             rms_x = f.read().strip()
-        elif archivo == '/home/pi/DTHIS_jorge/dBmax.txt':
+        elif archivo == '/home/pi/DTHIS/txt/dBmax.txt':
             dBmax_x = f.read().strip()
-        elif archivo == '/home/pi/DTHIS_jorge/dBmin.txt':
+        elif archivo == '/home/pi/DTHIS/txt/dBmin.txt':
             dBmin_x = f.read().strip()
 
 rms_db = 20 * np.log10(float(rms_x)) + 120
