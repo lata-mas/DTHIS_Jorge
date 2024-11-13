@@ -1,6 +1,6 @@
 # DTHIS
 
- El dispositivo DTHIS mide las variables de interes dentro del area de diseño bioclimático. En el contexto de la construción de un nuevo edificio para la LIER en el IER, se emplearon estrategias bioclimáticas dentro del mismo y la única manera de comprobar que dichas estrategias funcionan, es a través de los datos que el DTHIS pueda darnos. EL DTHIS (Dispositivo de Temperatura, Humedad, Iluminación y Sonido) funciona con un microprocesador Raspberry Pi y 3 sensores/hardware diferentes, los cuales a través de una seria de códigos recolectan las variables de interes y las mandan a una plataforma de internet de las cosas como  Thingsboard.
+ El dispositivo DTHIS nos ayuda a evaluar la calidad del ambiente dentro de salones de clases. EL DTHIS (Dispositivo de Temperatura, Humedad, Iluminación y Sonido) funciona con un microprocesador Raspberry Pi y 3 sensores/hardware diferentes, los cuales a través de una seria de códigos recolectan las variables de interes y las mandan a una plataforma de _IoT_ como Thingsboard.
 
 
 ## Piezas del DTHIS
@@ -92,7 +92,7 @@ arecord -D plughw:3,0 -f cd -t wav -d 5 -r 44100 audio.wav
 ```
 Esta instrucción graba 5 segundos, puedes comprobar que todo funciona escuchando el audio que acabas de grabar 
 
- ### 5. Crear un script para cada función de audio
+ ### 5. Ejecuta un script para cada función de audio
 
 - [grabar.sh](https://github.com/lata-mas/DTHIS_Jorge/blob/main/codigo/grabar.sh): Graba 15 segundos de audio en calidad CD. 
 - [dBmax.sh](https://github.com/lata-mas/DTHIS_Jorge/blob/main/codigo/dBmax.sh): Extrae la amplitud máxima del archivo de audio.
