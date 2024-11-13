@@ -125,7 +125,7 @@ La ultima linea es para activar python dentro del ambiente virtual y así poder 
 - Conecta la cámara al puerto CSI.
 - Asegúrate de que la cinta esté bien conectada, con la parte metálica hacia el conector del puerto.
 
-![Camera](figs/camera.jpg)
+![Camera](diagramas/camera.jpg)
 
 ### 2. Actualizar el sistema
 ```bash
@@ -277,7 +277,7 @@ sudo apt-get install xfonts*
 ---
 
 # Visualización de imágenes .hdr con Radiance
-Para visualizar alguna imagen formato `.hdr` generada tras haber ejecutado el script [createHDR.sh](https://github.com/lata-mas/DTHIS-C_JoseRra/blob/main/Scripts/Raspberry/createHDR.sh), es necesario ejecutar el siguiente comando:
+Para visualizar alguna imagen formato `.hdr` generada tras haber ejecutado el script [createHDR.sh](https://github.com/lata-mas/DTHIS_Jorge/blob/main/codigo/createHDR.sh), es necesario ejecutar el siguiente comando:
 ```bash
 ximage /home/ruta/del/archivo/nombre.hdr
 ```
