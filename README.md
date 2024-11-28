@@ -277,13 +277,13 @@ sudo apt-get install xfonts*
 ---
 
 # Visualización de imágenes .hdr con Radiance
-Para visualizar alguna imagen formato `.hdr` generada tras haber ejecutado el script [createHDR.sh](https://github.com/lata-mas/DTHIS_Jorge/blob/main/codigo/createHDR.sh), es necesario ejecutar el siguiente comando:
+Para visualizar alguna imagen formato `.hdr` generada tras haber ejecutado el script [createHDR.sh](https://github.com/lata-mas/DTHIS_Jorge/blob/main/codigo/createHDR.sh), es necesario instalar la biblioteca `imagemagick`:
 ```bash
-ximage /home/ruta/del/archivo/nombre.hdr
+sudo apt-get install imagemagick
 ```
-Si se desea visualizar en `false color`, este se aplica de la siguiente forma:
+Ahora ejecuta el siguiente comando:
 ```bash
-falsecolor -i /home/ruta/del/archivo/nombre.hdr | ximage
+display /home/ruta/del/archivo/nombre.hdr
 ```
   
 - ### Crontab
