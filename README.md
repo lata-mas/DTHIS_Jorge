@@ -40,7 +40,7 @@ Para preparar el ambiente virtual, debes instalar los paquetes de requirements.t
 ```bash
 source venvs/dthis/bin/activate
 ```
-2. Instala las dependencias desde el archivo `requirements.txt`:
+2. Instala las dependencias desde el archivo [requirements.txt](https://github.com/lata-mas/DTHIS_Jorge/blob/main/venvs/requirements.txt):
 ```bash
 python -m pip install -r requirements.txt
 ```
