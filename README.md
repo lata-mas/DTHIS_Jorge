@@ -280,8 +280,8 @@ display /home/ruta/del/archivo/nombre.hdr
   
 - ### Crontab
 ```bash
-* * * * * /home/pi/DTHIS/codigo/ejecutable.e >> /home/pi/DTHIS/codigo/errores_log.txt 2>&1
-*/2 * * * * /bin/bash -c 'source /home/pi/DTHIS/venvs/dthis/bin/activate && /home/pi/DTHIS/venvs/dthis/bin/python3 /home/pi/DTHIS/codigo/leer.py' >> /home/pi/DTHIS/codigo/errores_py.txt 2>&1
+* * * * * /home/pi/DTHIS/codigo/ejecutable.e >> /home/pi/DTHIS/codigo/errores_e.log 2>&1
+*/2 * * * * /bin/bash -c 'source /home/pi/DTHIS/venvs/dthis/bin/activate && /home/pi/DTHIS/venvs/dthis/bin/python3 /home/pi/DTHIS/codigo/leer.py' >> /home/pi/DTHIS/codigo/errores_py.log 2>&1
 */2 * * * * /bin/bash -c 'source /home/pi/DTHIS/venvs/dthis/bin/activate && /home/pi/DTHIS/venvs/dthis/bin/python3 /home/pi/DTHIS/codigo/SCD30.py' >> /home/pi/DTHIS/codigo/SCD30.log 2>&1
 */30 * * * * /home/pi/DTHIS/codigo/createHDR.sh >> /home/pi/DTHIS/createHDR.log 2>&1
 ```
