@@ -16,7 +16,7 @@
 
 ## Elementos del repositorio
  
-- #### En [**CAD**](https://github.com/lata-mas/DTHIS_Jorge/tree/main/CAD) encuentra
+ - #### En [**CAD**](https://github.com/lata-mas/DTHIS_Jorge/tree/main/CAD) encuentra
 	- Planos para 3D de la carcasa
 
  - #### En [**calibración**](https://github.com/lata-mas/DTHIS_Jorge/tree/main/calibración) encuentra
@@ -27,6 +27,10 @@
 
  - #### En [**diagramas**](https://github.com/lata-mas/DTHIS_Jorge/tree/main/diagramas) encuentra
 	- Imagenes de los diagramas de conexión usados en la documentación
+
+## Estructura del repositorio
+
+ La estructura del repositorio está planeada para que solamente se descargue el archivo zip, y en tu propia maquina solamente darle el permiso a los scripts para que sean ejecutables pues dichos scripts ya están escritos
 
 ## Preparar la Raspberry 
 
@@ -92,31 +96,19 @@ arecord -D plughw:3,0 -f cd -t wav -d 5 -r 44100 audio.wav
 ```
 Esta instrucción graba 5 segundos, puedes comprobar que todo funciona escuchando el audio que acabas de grabar 
 
- ### 5. Ejecuta un script para cada función de audio
+ ### 5. Concede los permisos necesarios a los scripts de audio 
+Para que sea posible ejecutar los scripts a traves del crontab es necesario darle permiso con:
+```bash
+chmod +x script.sh
+```
+Funciones de cada uno de los scripts:
 
 - [grabar.sh](https://github.com/lata-mas/DTHIS_Jorge/blob/main/codigo/grabar.sh): Graba 15 segundos de audio en calidad CD. 
 - [dBmax.sh](https://github.com/lata-mas/DTHIS_Jorge/blob/main/codigo/dBmax.sh): Extrae la amplitud máxima del archivo de audio.
 - [dBmin.sh](https://github.com/lata-mas/DTHIS_Jorge/blob/main/codigo/dBmin.sh): Extrae la amplitud mínima del archivo de audio.
 - [rms.sh](https://github.com/lata-mas/DTHIS_Jorge/blob/main/codigo/rms.sh): Extrae la amplitud RMS, una medida de la potencia promedio del audio.
-- [leer.py](https://github.com/lata-mas/DTHIS_Jorge/blob/main/codigo/leer.py): Lee los datos previamente extraidos y los mando a nuestra plataforma de _IoT_ 
-
- ### 6. Crear un script ejecutable para correr los otros scripts
-Ya que el crontab puede fallar debido a los varios procesos que tiene que realizar, pues todos los realiza al mismo tiempo y puede fallar la _Raspi_. Para eso crearemos un ejecutable _.e_ en el cual pondremos la dirección de los scripts que queremos ejecutar. Primero el de grabar (obvio) en medio los scripts que extraen los datos de sonido y los almaenan en un archivo de texto y al final el script que lee los datos de esos archivos y los manda a nuestro servido de IoT.   
-
-El archivo se crea de la siguiente manera:
-```bash
-nano ejecutable.e
-```
-
-Y su contenido debe ser el siguiente:
-```bash
-/home/pi/DTHIS/codigo/grabar.sh
-/home/pi/DTHIS/codigo/dBmax.sh
-/home/pi/DTHIS/codigo/dBmin.sh
-/home/pi/DTHIS/codigo/rms.sh
-/home/pi/DTHIS/venvs/dthis/bin/python3 /home/pi/DTHIS/codigo/leer.py
-```
-La ultima linea es para activar python dentro del ambiente virtual y así poder correr el script
+- [leer.py](https://github.com/lata-mas/DTHIS_Jorge/blob/main/codigo/leer.py): Lee los datos previamente extraidos y los mando a nuestra plataforma de _IoT_
+- [ejecutable.e](https://github.com/lata-mas/DTHIS_Jorge/blob/main/codigo/ejecutable.e): Es el script que ejecuta los scripts en el orden adecuado
 
 
 - ## Cámara
