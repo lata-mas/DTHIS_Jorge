@@ -3,8 +3,8 @@ import paho.mqtt.client as mqtt
 import json
 
 THINGSBOARD_HOST = 'tb.ier.unam.mx'
-UNIQUE_ID = '58674640-fae6-11ef-b37b-add9be6ef0f3' 
-ACCESS_TOKEN = 'Bu3KK4ZWjkM9sRRGi3F8'
+UNIQUE_ID = '58674640-fae6-11ef-b37b-add9be6ef0f3' #4 5f3b2b30-fae6-11ef-b37b-add9be6ef0f3  #5 64e7f540-fae6-11ef-b37b-add9be6ef0f3  #6 6abb8130-fae6-11ef-b37b-add9be6ef0f3 #7 704b2650-fae6-11ef-b37b-add9be6ef0f3  #8 76b992b0-fae6-11ef-b37b-add9be6ef0f3
+ACCESS_TOKEN = 'Bu3KK4ZWjkM9sRRGi3F8' #4 2fn5wQSDRcAfzXpihGG5  #5 L1OPtuo9ASQsf2bF2V2f #6 zM1N1sE6GbIjvu5EwmWq  #7 nAxgM43HZ9SrM5Fqlg2X  #8 oOsXYqvmmeYrNUJOOq1R
 
 archivos = ['/home/pi/DTHIS/txt/rms.txt', '/home/pi/DTHIS/txt/dBmax.txt', '/home/pi/DTHIS/txt/dBmin.txt']
 rms_x  = ""
