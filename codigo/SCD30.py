@@ -11,8 +11,8 @@ CO2, T, HR = scd30.read_measurement()
 
 
 THINGSBOARD_HOST = 'tb.ier.unam.mx'
-UNIQUE_ID = 'f1bd5cf0-2754-11ef-ac1b-fb0c99e98d63' 
-ACCESS_TOKEN = '5s444k8d0vkUmBQtGKd3'
+UNIQUE_ID = 'f6684210-fae4-11ef-b37b-add9be6ef0f3' 
+ACCESS_TOKEN = '0TmRvwqxS1b7U8RDeIaS'
 
 sensor_data = {'T': 0,'HR': 0, 'CO2': 0} 
 client = mqtt.Client(UNIQUE_ID, False)
