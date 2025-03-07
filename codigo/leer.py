@@ -1,3 +1,4 @@
+import numpy as np
 import time
 import paho.mqtt.client as mqtt
 import json
