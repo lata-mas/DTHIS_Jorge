@@ -265,7 +265,9 @@ Finalmente, necesitas descargar una biblioteca de fuentes para poder visualizar 
 ```bash
 sudo apt-get install xfonts*
 ```
-
+```bash
+sudo apt-get purge xfonts-75dpi xfonts-100dpi
+```
 ---
 
 # Visualización de imágenes .hdr con Radiance
