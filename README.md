@@ -1,5 +1,7 @@
 # DTHIS
 
+Este dispositivo se realizó gracias al apoyo del proyecto UNAM-PAPIIT IT103023.
+
  El dispositivo DTHIS nos ayuda a evaluar la calidad del ambiente dentro de salones de clases. EL DTHIS (Dispositivo de Temperatura, Humedad, Iluminación y Sonido) funciona con un microprocesador Raspberry Pi y 3 sensores/hardware diferentes, los cuales a través de una seria de códigos recolectan las variables de interes y las mandan a una plataforma de _IoT_ como Thingsboard.
 
 
